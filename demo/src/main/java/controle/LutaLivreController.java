@@ -38,7 +38,7 @@ public class LutaLivreController {
    }
 
     @GetMapping ("/{contagem-vivos}")
-    public ResponseEntity getLutadores(){
+    public ResponseEntity getLutador (){
     
     }
 }
