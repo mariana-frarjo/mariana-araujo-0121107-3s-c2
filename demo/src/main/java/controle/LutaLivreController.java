@@ -6,8 +6,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import repositorio.LutaLivreRepository;
 
+import javax.swing.text.html.Option;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/lutadores")
@@ -37,8 +39,12 @@ public class LutaLivreController {
        }
    }
 
-    @GetMapping ("/{contagem-vivos}")
-    public ResponseEntity getLutador (){
-    
-    }
+   @PostMapping("/{id}/concentrar")
+    public ResponseEntity postLutadores(@PathVariable int id){
+       Optional<LutaLivre> lutadores = repository.findById(id);
+
+       return ResponseEntity.status(400).body("Lutador já se concentrou 3 vezes!");
+
+   }
+
 }
